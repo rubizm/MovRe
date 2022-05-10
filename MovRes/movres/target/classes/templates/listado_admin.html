@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <link rel="icon" type="image/ico" th:href="@{/img/favicon.ico}" />
+        <title>Movilidad Responsable (Admin)</title>
+        <link rel = "stylesheet" type= "text/css" th:href="@{/css/Listado.css}">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <button class="button" onclick="history.back()">Salir</button>
+        <img id="logo" class="h-100 d-inline-block" th:src="@{../../img/movres_icon.png}" />
+        <h2 class="titulo" align="center">Lista de VMPs (Administradores)</h2>
+
+        <div class="row">
+            <table id="pacientes" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Latitud</th>
+                        <th class="text-center">Longitud</th>
+                        <th class="text-center">Bloqueado</th>
+                        <th class="text-center">En uso</th>
+                        <th class="text-center">En reparación</th>
+                        <th class="text-center">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="Listado: ${listaAdmin}">
+                        <td th:text="${Listado.latitude}"></td>
+                        <td th:text="${Listado.longitude}"></td>     
+                        <td>
+                                <span th:if="${Listado.locked == true}">
+                                    <img class="comprobado" th:src="@{../../img/comprobado.png}" />
+                                </span>
+                                <span th:unless="${Listado.locked == true}">
+                                    <img class="cancelar" th:src="@{../../img/cancelar.png}" />
+                                </span>
+                        </td>
+                        <td>
+                            <span th:if="${Listado.inUse == true}">
+                                <img class="comprobado" th:src="@{../../img/comprobado.png}" />
+                            </span>
+                            <span th:unless="${Listado.inUse == true}">
+                                <img class="cancelar" th:src="@{../../img/cancelar.png}" />
+                            </span>
+                        </td>
+                        <td>
+                            <span th:if="${Listado.inRep == true}">
+                                <img class="comprobado" th:src="@{../../img/comprobado.png}" />
+                            </span>
+                            <span th:unless="${Listado.inRep == true}">
+                                <img class="cancelar" th:src="@{../../img/cancelar.png}" />
+                            </span>
+                        </td>
+                        <td>
+                            <span th:if="${Listado.isBike == true}">
+                                <img class="bici" th:src="@{../../img/frontbici.jpg}" />
+                            </span>
+                            <span th:unless="${Listado.isBike == true}">
+                                <img class="patin" th:src="@{../../img/frontpatin.jpg}" />
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <h3>Movilidad Responsable</h3>
+                <p class="fop">Términos y condiciones | Política de privacidad | Política de cookies | Aviso Legal </p>
+            </div>
+        </footer>
+    </body>
+
+</html>

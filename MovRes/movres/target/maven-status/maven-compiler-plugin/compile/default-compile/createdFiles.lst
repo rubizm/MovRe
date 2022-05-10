@@ -1,0 +1,9 @@
+es\upm\dit\isst\movres\model\Vmp.class
+es\upm\dit\isst\movres\repository\ClienteRepository.class
+es\upm\dit\isst\movres\MovresApplication.class
+es\upm\dit\isst\movres\repository\VmpRepository.class
+es\upm\dit\isst\movres\repository\AdminRepository.class
+es\upm\dit\isst\movres\controllerREST\VmpController.class
+es\upm\dit\isst\movres\model\Cliente.class
+es\upm\dit\isst\movres\model\Admin.class
+es\upm\dit\isst\movres\controllerWEB\VmpControllerWeb.class
